@@ -5,7 +5,8 @@ import json
 from pathlib import Path
 import glob
 import pandas as pd
-import easyocr
+import pytesseract
+from PIL import Image
 
 # ============================
 # GLOBAL PARAMETERS
@@ -28,8 +29,20 @@ INPUT_TARGET_PATH = "input data/target"
 INPUT_TEXT_PATH = "input data/text/text.txt"
 RESULT_PATH = "result"
 
-# EasyOCR 語言設定
-OCR_LANGUAGES = ['en', 'es', 'fr', 'la']  # 英文、西班牙文、法文、拉丁文
+# Tesseract OCR 設定
+# 優先使用項目目錄中的 Tesseract（用於打包部署）
+# 如果不存在，則使用系統安裝的 Tesseract
+TESSERACT_LOCAL = os.path.join(os.path.dirname(__file__), 'tesseract', 'tesseract.exe')
+TESSERACT_SYSTEM = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+
+if os.path.exists(TESSERACT_LOCAL):
+    TESSERACT_CMD = TESSERACT_LOCAL
+    TESSDATA_DIR = os.path.join(os.path.dirname(__file__), 'tesseract', 'tessdata')
+else:
+    TESSERACT_CMD = TESSERACT_SYSTEM
+    TESSDATA_DIR = None
+
+OCR_LANGUAGE = 'eng'  # 英文
 
 def create_result_directory():
     """創建結果目錄"""
@@ -37,24 +50,44 @@ def create_result_directory():
 
 def initialize_ocr():
     """
-    初始化 EasyOCR
+    初始化 Tesseract OCR
     """
-    print("正在初始化 EasyOCR...")
+    print("正在初始化 Tesseract OCR...")
     try:
-        # 初始化 EasyOCR，支援多語言，優化參數
-        reader = easyocr.Reader(
-            OCR_LANGUAGES, 
-            gpu=False,
-            model_storage_directory='easyocr_models',
-            download_enabled=True
-        )
-        print(f"✓ EasyOCR 初始化成功 (語言: {', '.join(OCR_LANGUAGES)})")
-        print(f"✓ 信心度閾值設為: {OCR_CONFIDENCE_THRESHOLD}")
-        return reader
+        # 設定 Tesseract 執行檔路徑
+        if os.path.exists(TESSERACT_CMD):
+            pytesseract.pytesseract.tesseract_cmd = TESSERACT_CMD
+            
+            # 如果使用本地 Tesseract，設定 tessdata 路徑
+            if TESSDATA_DIR and os.path.exists(TESSDATA_DIR):
+                os.environ['TESSDATA_PREFIX'] = TESSDATA_DIR
+                print(f"[OK] Tesseract OCR 初始化成功（使用項目目錄）")
+                print(f"[OK] Tesseract 路徑: {TESSERACT_CMD}")
+                print(f"[OK] Tessdata 路徑: {TESSDATA_DIR}")
+            else:
+                print(f"[OK] Tesseract OCR 初始化成功（使用系統安裝）")
+                print(f"[OK] Tesseract 路徑: {TESSERACT_CMD}")
+            
+            print(f"[OK] 語言: {OCR_LANGUAGE}")
+            print(f"[OK] 信心度閾值設為: {OCR_CONFIDENCE_THRESHOLD}")
+            
+            # 測試 Tesseract 是否可用
+            version = pytesseract.get_tesseract_version()
+            print(f"[OK] Tesseract 版本: {version}")
+            return True
+        else:
+            print(f"[ERROR] 找不到 Tesseract 執行檔")
+            print(f"已嘗試: {TESSERACT_CMD}")
+            if TESSERACT_CMD == TESSERACT_LOCAL:
+                print(f"備用路徑: {TESSERACT_SYSTEM}")
+            print("請確認 Tesseract 已正確安裝或複製到項目目錄")
+            return False
     except Exception as e:
-        print(f"✗ EasyOCR 初始化失敗: {e}")
-        print("請安裝 EasyOCR: pip install easyocr")
-        return None
+        print(f"[ERROR] Tesseract OCR 初始化失敗: {e}")
+        print("請確認已正確安裝 Tesseract OCR")
+        import traceback
+        traceback.print_exc()
+        return False
 
 def load_target_texts():
     """
@@ -84,63 +117,72 @@ def load_target_texts():
         print(f"錯誤: 載入文字檔案失敗 - {e}")
         return []
 
-def perform_ocr_on_image(reader, image_path):
+def perform_ocr_on_image(ocr_initialized, image_path):
     """
-    使用 EasyOCR 對圖像執行 OCR 識別
+    使用 Tesseract OCR 對圖像執行 OCR 識別
     """
     try:
-        print(f"  使用 EasyOCR 識別圖像: {os.path.basename(image_path)}")
+        print(f"  使用 Tesseract OCR 識別圖像: {os.path.basename(image_path)}")
         
-        # 執行 OCR，使用優化參數
-        results = reader.readtext(
-            image_path,
-            detail=1,
-            paragraph=False,
-            width_ths=0.7,
-            height_ths=0.7,
-            decoder='greedy',
-            beamWidth=5,
-            batch_size=1
+        # 讀取圖像
+        image = Image.open(image_path)
+        
+        # 使用 Tesseract 進行 OCR，獲取詳細數據
+        # 使用 image_to_data 獲取邊界框和信心度
+        ocr_data = pytesseract.image_to_data(
+            image, 
+            lang=OCR_LANGUAGE,
+            output_type=pytesseract.Output.DICT,
+            config='--psm 6'  # PSM 6: 假設單一均勻文本塊
         )
         
         ocr_texts = []
-        for result in results:
-            # EasyOCR 格式: (bbox, text, confidence)
-            bbox_points = result[0]  # 四個角點座標
-            text = result[1]
-            confidence = result[2]
+        n_boxes = len(ocr_data['text'])
+        
+        # 遍歷所有識別結果
+        for i in range(n_boxes):
+            # 獲取信心度（Tesseract 返回 -1 表示未識別）
+            confidence = float(ocr_data['conf'][i])
+            text = ocr_data['text'][i].strip()
             
-            # 只保留信心度達標的結果
-            if confidence >= OCR_CONFIDENCE_THRESHOLD:
-                # 計算邊界框
-                x_coords = [point[0] for point in bbox_points]
-                y_coords = [point[1] for point in bbox_points]
+            # 過濾空白和低信心度結果
+            if text and confidence > 0:
+                # 轉換信心度為 0-1 範圍
+                confidence_normalized = confidence / 100.0
                 
-                x = int(min(x_coords))
-                y = int(min(y_coords))
-                w = int(max(x_coords) - min(x_coords))
-                h = int(max(y_coords) - min(y_coords))
-                
-                ocr_texts.append({
-                    'text': text.strip(),
-                    'confidence': confidence,
-                    'bbox': {'x': x, 'y': y, 'width': w, 'height': h},
-                    'polygon': bbox_points
-                })
-                
-                print(f"    ✓ 識別到: '{text}' (信心度: {confidence:.3f})")
+                if confidence_normalized >= OCR_CONFIDENCE_THRESHOLD:
+                    # 獲取邊界框
+                    x = ocr_data['left'][i]
+                    y = ocr_data['top'][i]
+                    w = ocr_data['width'][i]
+                    h = ocr_data['height'][i]
+                    
+                    # 計算四角座標
+                    bbox_points = [
+                        [x, y],
+                        [x + w, y],
+                        [x + w, y + h],
+                        [x, y + h]
+                    ]
+                    
+                    ocr_texts.append({
+                        'text': text,
+                        'confidence': confidence_normalized,
+                        'bbox': {'x': x, 'y': y, 'width': w, 'height': h},
+                        'polygon': bbox_points
+                    })
+                    
+                    print(f"    [OK] 識別到: '{text}' (信心度: {confidence_normalized:.3f})")
+                else:
+                    print(f"    [!] 低信心度: '{text}' (信心度: {confidence_normalized:.3f}) - 已過濾")
         
-        # 顯示所有低信心度的結果
-        for result in results:
-            text = result[1].strip()
-            confidence = result[2]
-            if confidence < OCR_CONFIDENCE_THRESHOLD and text:
-                print(f"    ⚠ 低信心度: '{text}' (信心度: {confidence:.3f}) - 已過濾")
-        
+        print(f"  識別結果: 共 {len(ocr_texts)} 個文字（信心度 >= {OCR_CONFIDENCE_THRESHOLD}）")
         return ocr_texts
         
     except Exception as e:
-        print(f"  EasyOCR 處理失敗: {e}")
+        print(f"  [ERROR] Tesseract OCR 處理失敗: {e}")
+        import traceback
+        traceback.print_exc()
         return []
 
 def match_texts(ocr_results, target_texts):
@@ -334,10 +376,10 @@ def process_all_targets():
     # 初始化 OCR
     ocr = initialize_ocr()
     if not ocr:
-        print("錯誤: 無法初始化 EasyOCR！")
+        print("錯誤: 無法初始化 Tesseract OCR！")
         print("建議解決方案:")
-        print("1. 執行: pip install easyocr")
-        print("2. 確保有網路連線（首次使用需下載模型）")
+        print("1. 下載安裝 Tesseract: https://github.com/UB-Mannheim/tesseract/wiki")
+        print("2. 確保安裝路徑為: C:\\Program Files\\Tesseract-OCR\\tesseract.exe")
         return None
     
     # 載入目標文字
