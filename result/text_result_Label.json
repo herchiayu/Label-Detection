@@ -1,60 +1,38 @@
 {
   "target_image": "Label.png",
-  "total_matches": 12,
+  "total_matches": 8,
   "matches": [
     {
       "target_text": "ASSEMBLED IN VIETNAM",
-      "detected_text": "ASSEMBLED",
+      "detected_text": "ASSEMBLED IN VIETNAM",
       "confidence": 0.96,
       "position": {
         "x": 102,
         "y": 387,
-        "width": 100,
+        "width": 200,
         "height": 12
-      }
-    },
-    {
-      "target_text": "AC ADAPTER",
-      "detected_text": "A",
-      "confidence": 0.93,
-      "position": {
-        "x": 179,
-        "y": 305,
-        "width": 10,
-        "height": 16
       }
     },
     {
       "target_text": "MODEL (MODELO) NO. LA24BN",
-      "detected_text": "NO.",
-      "confidence": 0.93,
+      "detected_text": "MODEL (MODELO) NO. LA24BN",
+      "confidence": 0.915,
       "position": {
-        "x": 231,
+        "x": 80,
         "y": 230,
-        "width": 23,
-        "height": 13
+        "width": 245,
+        "height": 16
       }
     },
     {
       "target_text": "INPUT (ENTRADA): 100-240V~1.0A 50/60Hz",
-      "detected_text": "INPUT",
-      "confidence": 0.96,
+      "detected_text": "INPUT (ENTRADA): 100-240V~1.0A 50/60Hz",
+      "confidence": 0.915,
       "position": {
         "x": 33,
         "y": 250,
-        "width": 49,
-        "height": 12
-      }
-    },
-    {
-      "target_text": "OUTPUT (SALIDA): 18.0V 1.67A 30.0W",
-      "detected_text": "OUTPUT",
-      "confidence": 0.96,
-      "position": {
-        "x": 14,
-        "y": 328,
-        "width": 68,
-        "height": 13
+        "width": 339,
+        "height": 15
       }
     },
     {
@@ -70,67 +48,45 @@
     },
     {
       "target_text": "CAN ICES(B)/NMB(B)",
-      "detected_text": "A",
-      "confidence": 0.93,
+      "detected_text": "CAN ICES(B)/NMB(B)",
+      "confidence": 0.915,
       "position": {
-        "x": 179,
-        "y": 305,
-        "width": 10,
-        "height": 16
-      }
-    },
-    {
-      "target_text": "EFICIENCIA ENERGÉTICA",
-      "detected_text": "A",
-      "confidence": 0.93,
-      "position": {
-        "x": 179,
-        "y": 305,
-        "width": 10,
-        "height": 16
+        "x": 15,
+        "y": 348,
+        "width": 163,
+        "height": 15
       }
     },
     {
       "target_text": "CUMPLE CON LA NOM-029-ENER-2017",
-      "detected_text": "CON",
-      "confidence": 0.96,
+      "detected_text": "CUMPLE CON LA NOM-029-ENER-2017",
+      "confidence": 0.885,
       "position": {
-        "x": 115,
+        "x": 41,
         "y": 367,
-        "width": 35,
+        "width": 322,
         "height": 13
       }
     },
     {
       "target_text": "AMAZON.COM SERVICES LLC",
-      "detected_text": "SERVICES",
-      "confidence": 0.96,
+      "detected_text": "AMAZON.COM SERVICES LLC",
+      "confidence": 0.93,
       "position": {
-        "x": 265,
+        "x": 145,
         "y": 269,
-        "width": 82,
+        "width": 237,
         "height": 13
       }
     },
     {
       "target_text": "CAUTION-ELECTRICALLY OPERATED PRODUCT",
-      "detected_text": "OPERATED",
-      "confidence": 0.95,
+      "detected_text": "CAUTION-ELECTRICALLY OPERATED PRODUCT",
+      "confidence": 0.9366666666666666,
       "position": {
-        "x": 215,
+        "x": 4,
         "y": 289,
-        "width": 89,
-        "height": 13
-      }
-    },
-    {
-      "target_text": "ATTENTION-PRODUIT À COMMANDE ÉLECTRIQUE",
-      "detected_text": "ATTENTION-PRODUIT",
-      "confidence": 0.93,
-      "position": {
-        "x": 1,
-        "y": 308,
-        "width": 173,
+        "width": 397,
         "height": 13
       }
     }

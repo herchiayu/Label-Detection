@@ -187,8 +187,9 @@ def perform_ocr_on_image(ocr_initialized, image_path):
 
 def match_texts(ocr_results, target_texts):
     """
-    匹配 OCR 結果與目標文字（改進版）
+    匹配 OCR 結果與目標文字（改進版 - 支援精確的多詞組合匹配）
     """
+    import re
     matches = []
     
     print(f"\n  開始文字匹配 (共 {len(target_texts)} 個目標文字)")
@@ -197,58 +198,118 @@ def match_texts(ocr_results, target_texts):
         found = False
         best_match = None
         best_confidence = 0
+        best_word_count = 999  # 優先選擇詞數最少的匹配
         
+        target_clean = target_text.strip().lower()
+        target_alphanum = re.sub(r'[^a-z0-9]', '', target_clean)
+        target_words = target_clean.split()
+        
+        # 方法 1: 單個 OCR 結果匹配
         for ocr_result in ocr_results:
             detected_text = ocr_result['text']
             confidence = ocr_result['confidence']
-            
-            # 文字匹配（忽略大小寫和前後空白）
-            target_clean = target_text.strip().lower()
             detected_clean = detected_text.strip().lower()
+            detected_alphanum = re.sub(r'[^a-z0-9]', '', detected_clean)
             
             match = False
             match_type = ""
             
             # 1. 完全匹配
-            if target_clean == detected_clean:
+            if target_clean == detected_clean or target_alphanum == detected_alphanum:
                 match = True
                 match_type = "完全匹配"
-            # 2. 包含匹配（目標文字包含在識別文字中）
-            elif target_clean in detected_clean:
+            # 2. 包含匹配（單個OCR結果包含完整目標文字）
+            elif target_clean in detected_clean or target_alphanum in detected_alphanum:
                 match = True
                 match_type = "包含匹配"
-            # 3. 被包含匹配（識別文字包含在目標文字中）
-            elif detected_clean in target_clean:
-                match = True
-                match_type = "部分匹配"
-            # 4. 模糊匹配（去除特殊字符後比較）
-            else:
-                import re
-                target_alphanum = re.sub(r'[^a-z0-9]', '', target_clean)
-                detected_alphanum = re.sub(r'[^a-z0-9]', '', detected_clean)
-                if target_alphanum and detected_alphanum:
-                    if target_alphanum == detected_alphanum:
-                        match = True
-                        match_type = "模糊匹配"
-                    elif len(target_alphanum) > 5 and len(detected_alphanum) > 5:
-                        # 長文字的相似度匹配
-                        common_chars = len(set(target_alphanum) & set(detected_alphanum))
-                        similarity = common_chars / max(len(target_alphanum), len(detected_alphanum))
-                        if similarity > 0.7:
-                            match = True
-                            match_type = f"相似匹配({similarity:.2f})"
             
-            if match and confidence > best_confidence:
-                best_match = {
-                    'target_text': target_text,
-                    'detected_text': detected_text,
-                    'confidence': confidence,
-                    'bbox': ocr_result['bbox'],
-                    'polygon': ocr_result['polygon'],
-                    'match_type': match_type
-                }
-                best_confidence = confidence
-                found = True
+            if match:
+                if confidence > best_confidence or (confidence == best_confidence and 1 < best_word_count):
+                    best_match = {
+                        'target_text': target_text,
+                        'detected_text': detected_text,
+                        'confidence': confidence,
+                        'bbox': ocr_result['bbox'],
+                        'polygon': ocr_result['polygon'],
+                        'match_type': match_type
+                    }
+                    best_confidence = confidence
+                    best_word_count = 1
+                    found = True
+        
+        # 方法 2: 組合多個 OCR 結果（如果單個匹配失敗且目標有多個單詞）
+        if not found and len(target_words) > 1:
+            # 按 Y 座標排序（同一行的文字）
+            sorted_results = sorted(ocr_results, key=lambda x: (x['bbox']['y'], x['bbox']['x']))
+            
+            # 嘗試組合連續的 OCR 結果
+            for i in range(len(sorted_results)):
+                combined_text = []
+                combined_boxes = []
+                
+                # 嘗試不同長度的組合（從目標詞數到目標詞數+2）
+                for j in range(i, min(i + len(target_words) + 3, len(sorted_results))):
+                    ocr_text = sorted_results[j]['text'].strip()
+                    if not ocr_text:
+                        continue
+                    
+                    combined_text.append(ocr_text)
+                    combined_boxes.append(sorted_results[j])
+                    
+                    # 組合文字
+                    combined_str = ' '.join(combined_text).lower()
+                    combined_alphanum = re.sub(r'[^a-z0-9]', '', combined_str)
+                    
+                    # 計算匹配程度
+                    exact_match = (target_clean == combined_str) or (target_alphanum == combined_alphanum)
+                    contains_match = (target_clean in combined_str) or (target_alphanum in combined_alphanum)
+                    
+                    # 檢查是否為精確匹配（包含目標但不包含太多額外內容）
+                    if exact_match or contains_match:
+                        # 計算多餘詞數
+                        extra_words = len(combined_text) - len(target_words)
+                        
+                        # 只接受精確匹配或稍微多一點的匹配
+                        if exact_match or (contains_match and extra_words <= 1):
+                            # 計算平均信心度
+                            avg_confidence = sum(box['confidence'] for box in combined_boxes) / len(combined_boxes)
+                            
+                            # 優先選擇信心度高且詞數少的匹配
+                            is_better = False
+                            if not found:
+                                is_better = True
+                            elif exact_match and best_match['match_type'].startswith('組合'):
+                                is_better = True
+                            elif len(combined_text) < best_word_count:
+                                is_better = True
+                            elif len(combined_text) == best_word_count and avg_confidence > best_confidence:
+                                is_better = True
+                            
+                            if is_better:
+                                # 計算組合邊界框
+                                min_x = min(box['bbox']['x'] for box in combined_boxes)
+                                min_y = min(box['bbox']['y'] for box in combined_boxes)
+                                max_x = max(box['bbox']['x'] + box['bbox']['width'] for box in combined_boxes)
+                                max_y = max(box['bbox']['y'] + box['bbox']['height'] for box in combined_boxes)
+                                
+                                match_type = "組合匹配" if exact_match else "包含組合匹配"
+                                
+                                best_match = {
+                                    'target_text': target_text,
+                                    'detected_text': ' '.join(combined_text),
+                                    'confidence': avg_confidence,
+                                    'bbox': {'x': min_x, 'y': min_y, 'width': max_x - min_x, 'height': max_y - min_y},
+                                    'polygon': [
+                                        [min_x, min_y],
+                                        [max_x, min_y],
+                                        [max_x, max_y],
+                                        [min_x, max_y]
+                                    ],
+                                    'match_type': f"{match_type}({len(combined_boxes)}個詞)"
+                                }
+                                best_confidence = avg_confidence
+                                best_word_count = len(combined_text)
+                                found = True
         
         if found:
             matches.append(best_match)
