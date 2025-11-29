@@ -1,0 +1,94 @@
+=== TESSERACT OCR 文字萃取結果 ===
+
+目標圖片: Label_clean.png
+語言模型: fra
+信心度閾值: 0.3
+處理時間: 0.66 秒
+識別文字數量: 13 行
+處理時間: 2025-11-28 17:47:29
+----------------------------------
+
+📝 識別的文字 (逐行顯示):
+
+ 1. 30.0W
+ 2. © G0 w
+ 3. E
+ 4. MODEL (MODELO) NO. LA24BN
+ 5. INPUT (ENTRADA): 100-240V-1.0A 50/60Hz
+ 6. AC ADAPTER AMAZON.COM SERVICES LLC
+ 7. CAUTION-ELECTRICALLY OPERATED PRODUCT
+ 8. ATTENTION-PRODUIT À COMMANDE ÉLECTRIQUE
+ 9. OUTPUT (SALIDA): 30.0W
+10. CAN ICES(B)/NMB(B) EFICIENCIA ENERGÉTICA
+11. CUMPLE CON LA NOM-029-ENER-2017 ®
+12. ASSEMBLED IN VIETNAM
+13. VPPCCCUUYWWD####
+----------------------------------
+
+📊 詳細資訊:
+
+ 1. '30.0W'
+    信心度: 0.900
+    位置: (331, 131)
+    尺寸: 168×46
+
+ 2. '© G0 w'
+    信心度: 0.400
+    位置: (108, 236)
+    尺寸: 628×209
+
+ 3. 'E'
+    信心度: 0.420
+    位置: (722, 463)
+    尺寸: 16×27
+
+ 4. 'MODEL (MODELO) NO. LA24BN'
+    信心度: 0.913
+    位置: (171, 534)
+    尺寸: 490×32
+
+ 5. 'INPUT (ENTRADA): 100-240V-1.0A 50/60Hz'
+    信心度: 0.907
+    位置: (78, 574)
+    尺寸: 678×31
+
+ 6. 'AC ADAPTER AMAZON.COM SERVICES LLC'
+    信心度: 0.912
+    位置: (55, 613)
+    尺寸: 721×25
+
+ 7. 'CAUTION-ELECTRICALLY OPERATED PRODUCT'
+    信心度: 0.917
+    位置: (19, 652)
+    尺寸: 795×25
+
+ 8. 'ATTENTION-PRODUIT À COMMANDE ÉLECTRIQUE'
+    信心度: 0.917
+    位置: (13, 685)
+    尺寸: 805×32
+
+ 9. 'OUTPUT (SALIDA): 30.0W'
+    信心度: 0.917
+    位置: (39, 730)
+    尺寸: 637×31
+
+10. 'CAN ICES(B)/NMB(B) EFICIENCIA ENERGÉTICA'
+    信心度: 0.913
+    位置: (42, 763)
+    尺寸: 748×38
+
+11. 'CUMPLE CON LA NOM-029-ENER-2017 ®'
+    信心度: 0.910
+    位置: (94, 793)
+    尺寸: 646×52
+
+12. 'ASSEMBLED IN VIETNAM'
+    信心度: 0.923
+    位置: (215, 848)
+    尺寸: 400×25
+
+13. 'VPPCCCUUYWWD####'
+    信心度: 0.860
+    位置: (232, 887)
+    尺寸: 369×25
+

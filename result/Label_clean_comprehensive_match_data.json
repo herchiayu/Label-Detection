@@ -1,0 +1,253 @@
+{
+  "image_info": {
+    "filename": "Label_clean.png",
+    "basename": "Label_clean",
+    "processing_time": "2025-11-28 17:47:29",
+    "total_targets": 11
+  },
+  "matching_results": {
+    "matches": [
+      {
+        "target_text": "ASSEMBLED IN VIETNAM",
+        "language": "eng",
+        "ocr_source_file": "Label_clean_ocr_text_eng.json",
+        "status": "成功",
+        "extracted_text": "ASSEMBLED IN VIETNAM",
+        "confidence": 0.96,
+        "match_type": "完全匹配",
+        "processing_note": "無處理"
+      },
+      {
+        "target_text": "AC ADAPTER",
+        "language": "eng",
+        "ocr_source_file": "Label_clean_ocr_text_eng.json",
+        "status": "成功",
+        "extracted_text": "AC ADAPTER AMAZON.COM SERVICES LLC",
+        "confidence": 0.912,
+        "match_type": "包含匹配",
+        "processing_note": "無處理"
+      },
+      {
+        "target_text": "MODEL (MODELO) NO. LA24BN",
+        "language": "eng",
+        "ocr_source_file": "Label_clean_ocr_text_eng.json",
+        "status": "成功",
+        "extracted_text": "MODEL (MODELO) NO. LA24BN",
+        "confidence": 0.913,
+        "match_type": "完全匹配",
+        "processing_note": "無處理"
+      },
+      {
+        "target_text": "INPUT (ENTRADA): 100-240V~1.0A  50/60Hz",
+        "language": "eng",
+        "ocr_source_file": "Label_clean_ocr_text_eng.json",
+        "status": "成功",
+        "extracted_text": "INPUT (ENTRADA): 100-240V~1.0A 50/60Hz",
+        "confidence": 0.915,
+        "match_type": "完全匹配",
+        "processing_note": "忽略特殊字符/空格標準化"
+      },
+      {
+        "target_text": "OUTPUT (SALIDA): 18.0V     1.67A  30.0W",
+        "language": "eng",
+        "ocr_source_file": "Label_clean_ocr_text_eng.json",
+        "status": "成功",
+        "extracted_text": "OUTPUT (SALIDA): 18.0V ==1.67A 30.0W",
+        "confidence": 0.574,
+        "match_type": "完全匹配",
+        "processing_note": "忽略特殊字符/空格標準化"
+      },
+      {
+        "target_text": "VPPCCCUUYWWD####",
+        "language": "eng",
+        "ocr_source_file": "Label_clean_ocr_text_eng.json",
+        "status": "成功",
+        "extracted_text": "VPPCCCUUYWWD####",
+        "confidence": 0.88,
+        "match_type": "完全匹配",
+        "processing_note": "無處理"
+      },
+      {
+        "target_text": "CAN ICES(B)/NMB(B)",
+        "language": "eng",
+        "ocr_source_file": "Label_clean_ocr_text_eng.json",
+        "status": "成功",
+        "extracted_text": "CAN ICES(B)/NMB(B) EFICIENCIA ENERGETICA",
+        "confidence": 0.917,
+        "match_type": "包含匹配",
+        "processing_note": "無處理"
+      },
+      {
+        "target_text": "EFICIENCIA ENERGÉTICA CUMPLE CON LA NOM-029-ENER-2017",
+        "language": "spa",
+        "ocr_source_file": "Label_clean_ocr_text_spa.json",
+        "status": "成功",
+        "extracted_text": "CAN ICES(B)/NMB(B) EFICIENCIA ENERGÉTICA CUMPLE CON LA NOM-029-ENER-2017 )",
+        "confidence": 0.9115,
+        "match_type": "組合匹配",
+        "processing_note": "無處理"
+      },
+      {
+        "target_text": "AMAZON.COM SERVICES LLC",
+        "language": "eng",
+        "ocr_source_file": "Label_clean_ocr_text_eng.json",
+        "status": "成功",
+        "extracted_text": "AC ADAPTER AMAZON.COM SERVICES LLC",
+        "confidence": 0.912,
+        "match_type": "包含匹配",
+        "processing_note": "無處理"
+      },
+      {
+        "target_text": "CAUTION-ELECTRICALLY OPERATED PRODUCT",
+        "language": "eng",
+        "ocr_source_file": "Label_clean_ocr_text_eng.json",
+        "status": "成功",
+        "extracted_text": "CAUTION-ELECTRICALLY OPERATED PRODUCT",
+        "confidence": 0.94,
+        "match_type": "完全匹配",
+        "processing_note": "無處理"
+      },
+      {
+        "target_text": "ATTENTION-PRODUIT À COMMANDE ÉLECTRIQUE",
+        "language": "fra",
+        "ocr_source_file": "Label_clean_ocr_text_fra.json",
+        "status": "成功",
+        "extracted_text": "ATTENTION-PRODUIT À COMMANDE ÉLECTRIQUE",
+        "confidence": 0.917,
+        "match_type": "完全匹配",
+        "processing_note": "無處理"
+      }
+    ],
+    "summary_stats": {
+      "total_targets": 11,
+      "matched_count": 11,
+      "failed_count": 0
+    }
+  },
+  "visual_markup_data": {
+    "markup_positions": [
+      {
+        "target_text": "ASSEMBLED IN VIETNAM",
+        "bbox": {
+          "x": 215,
+          "y": 848,
+          "width": 400,
+          "height": 25
+        },
+        "match_type": "完全匹配"
+      },
+      {
+        "target_text": "AC ADAPTER",
+        "bbox": {
+          "x": 55,
+          "y": 613,
+          "width": 208,
+          "height": 25
+        },
+        "match_type": "包含匹配"
+      },
+      {
+        "target_text": "MODEL (MODELO) NO. LA24BN",
+        "bbox": {
+          "x": 171,
+          "y": 534,
+          "width": 490,
+          "height": 32
+        },
+        "match_type": "完全匹配"
+      },
+      {
+        "target_text": "INPUT (ENTRADA): 100-240V~1.0A  50/60Hz",
+        "bbox": {
+          "x": 78,
+          "y": 574,
+          "width": 678,
+          "height": 31
+        },
+        "match_type": "完全匹配"
+      },
+      {
+        "target_text": "OUTPUT (SALIDA): 18.0V     1.67A  30.0W",
+        "bbox": {
+          "x": 39,
+          "y": 730,
+          "width": 637,
+          "height": 31
+        },
+        "match_type": "完全匹配"
+      },
+      {
+        "target_text": "VPPCCCUUYWWD####",
+        "bbox": {
+          "x": 232,
+          "y": 887,
+          "width": 369,
+          "height": 25
+        },
+        "match_type": "完全匹配"
+      },
+      {
+        "target_text": "CAN ICES(B)/NMB(B)",
+        "bbox": {
+          "x": 42,
+          "y": 769,
+          "width": 326,
+          "height": 32
+        },
+        "match_type": "包含匹配"
+      },
+      {
+        "target_text": "EFICIENCIA ENERGÉTICA CUMPLE CON LA NOM-029-ENER-2017",
+        "bbox": {
+          "x": 382,
+          "y": 763,
+          "width": 408,
+          "height": 32
+        },
+        "match_type": "組合匹配",
+        "segment_text": "EFICIENCIA ENERGÉTICA"
+      },
+      {
+        "target_text": "EFICIENCIA ENERGÉTICA CUMPLE CON LA NOM-029-ENER-2017",
+        "bbox": {
+          "x": 94,
+          "y": 808,
+          "width": 643,
+          "height": 26
+        },
+        "match_type": "組合匹配",
+        "segment_text": "CUMPLE CON LA NOM-029-ENER-2017"
+      },
+      {
+        "target_text": "AMAZON.COM SERVICES LLC",
+        "bbox": {
+          "x": 301,
+          "y": 613,
+          "width": 475,
+          "height": 25
+        },
+        "match_type": "包含匹配"
+      },
+      {
+        "target_text": "CAUTION-ELECTRICALLY OPERATED PRODUCT",
+        "bbox": {
+          "x": 19,
+          "y": 652,
+          "width": 795,
+          "height": 25
+        },
+        "match_type": "完全匹配"
+      },
+      {
+        "target_text": "ATTENTION-PRODUIT À COMMANDE ÉLECTRIQUE",
+        "bbox": {
+          "x": 13,
+          "y": 685,
+          "width": 805,
+          "height": 32
+        },
+        "match_type": "完全匹配"
+      }
+    ]
+  }
+}

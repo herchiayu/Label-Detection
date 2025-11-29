@@ -1,0 +1,12 @@
+﻿目標文字,語言,匹配JSON檔,檢測狀態,識別文字,信心度,匹配類型,處理標記
+ASSEMBLED IN VIETNAM,eng,Label_clean_ocr_text_eng.json,成功,ASSEMBLED IN VIETNAM,0.96,完全匹配,無處理
+AC ADAPTER,eng,Label_clean_ocr_text_eng.json,成功,AC ADAPTER AMAZON.COM SERVICES LLC,0.912,包含匹配,無處理
+MODEL (MODELO) NO. LA24BN,eng,Label_clean_ocr_text_eng.json,成功,MODEL (MODELO) NO. LA24BN,0.913,完全匹配,無處理
+INPUT (ENTRADA): 100-240V~1.0A  50/60Hz,eng,Label_clean_ocr_text_eng.json,成功,INPUT (ENTRADA): 100-240V~1.0A 50/60Hz,0.915,完全匹配,忽略特殊字符/空格標準化
+OUTPUT (SALIDA): 18.0V     1.67A  30.0W,eng,Label_clean_ocr_text_eng.json,成功,OUTPUT (SALIDA): 18.0V ==1.67A 30.0W,0.574,完全匹配,忽略特殊字符/空格標準化
+VPPCCCUUYWWD####,eng,Label_clean_ocr_text_eng.json,成功,VPPCCCUUYWWD####,0.88,完全匹配,無處理
+CAN ICES(B)/NMB(B),eng,Label_clean_ocr_text_eng.json,成功,CAN ICES(B)/NMB(B) EFICIENCIA ENERGETICA,0.917,包含匹配,無處理
+EFICIENCIA ENERGÉTICA CUMPLE CON LA NOM-029-ENER-2017,spa,Label_clean_ocr_text_spa.json,成功,CAN ICES(B)/NMB(B) EFICIENCIA ENERGÉTICA CUMPLE CON LA NOM-029-ENER-2017 ),0.9115,組合匹配,無處理
+AMAZON.COM SERVICES LLC,eng,Label_clean_ocr_text_eng.json,成功,AC ADAPTER AMAZON.COM SERVICES LLC,0.912,包含匹配,無處理
+CAUTION-ELECTRICALLY OPERATED PRODUCT,eng,Label_clean_ocr_text_eng.json,成功,CAUTION-ELECTRICALLY OPERATED PRODUCT,0.94,完全匹配,無處理
+ATTENTION-PRODUIT À COMMANDE ÉLECTRIQUE,fra,Label_clean_ocr_text_fra.json,成功,ATTENTION-PRODUIT À COMMANDE ÉLECTRIQUE,0.917,完全匹配,無處理

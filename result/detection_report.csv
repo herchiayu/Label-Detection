@@ -1,15 +1,16 @@
-﻿目標圖像,圖示名稱,辨識狀態,信心度,"位置(x,y)",尺寸(w×h),縮放比例,檢測數量
-Label.png,image01,成功,0.972,"(148, 11)",112×54,0.98,1
-Label.png,image02,成功,0.947,"(335, 324)",59×19,0.48,1
-Label.png,image03,成功,0.886,"(46, 104)",47×47,0.71,1
-Label.png,image04,成功,0.948,"(235, 106)",69×44,0.93,1
-Label.png,image05,成功,0.948,"(314, 164)",52×50,0.99,1
-Label.png,image06,失敗,N/A,N/A,N/A,N/A,0
-Label.png,image07,成功,0.928,"(108, 102)",129×116,0.72,1
-Label.png,image08,成功,0.955,"(33, 154)",71×61,0.62,1
-Label.png,image09,失敗,N/A,N/A,N/A,N/A,0
-Label.png,image10,失敗,N/A,N/A,N/A,N/A,0
-Label.png,image11,成功,0.977,"(243, 161)",56×61,0.71,1
-Label.png,image12,成功,0.997,"(99, 440)",203×56,0.76,1
-Label.png,image13,成功,0.881,"(313, 102)",54×51,0.65,1
-Label.png,image14,失敗,N/A,N/A,N/A,N/A,0
+﻿目標圖像,圖示名稱,辨識狀態,信心度,"位置(x,y)",尺寸(w×h),縮放比例,檢測數量,IoU
+Label_clean.png,Checklist_listed_img_01,成功,0.957,"(434, 732)",41×23,0.76,1,0.000
+Label_clean.png,Checklist_listed_img_02,成功,0.943,"(681, 722)",119×37,0.32,1,0.000
+Label_clean.png,Checklist_listed_img_03,成功,0.919,"(104, 283)",92×93,1.22,1,0.000
+Label_clean.png,Checklist_listed_img_04,成功,0.932,"(482, 286)",137×88,1.12,1,0.000
+Label_clean.png,Checklist_listed_img_05,失敗,N/A,N/A,N/A,N/A,0,N/A
+Label_clean.png,Checklist_listed_img_06,失敗,N/A,N/A,N/A,N/A,0,N/A
+Label_clean.png,Checklist_listed_img_07,成功,0.962,"(637, 278)",108×100,1.04,1,0.000
+Label_clean.png,Checklist_listed_img_08,失敗,N/A,N/A,N/A,N/A,0,N/A
+Label_clean.png,Checklist_listed_img_09,成功,0.958,"(229, 278)",256×230,1.04,1,0.000
+Label_clean.png,Checklist_listed_img_10,成功,0.954,"(77, 381)",143×124,0.78,1,0.000
+Label_clean.png,Checklist_listed_img_11,失敗,N/A,N/A,N/A,N/A,0,N/A
+Label_clean.png,Checklist_listed_img_12,失敗,N/A,N/A,N/A,N/A,0,N/A
+Label_clean.png,Checklist_listed_img_13,成功,0.983,"(498, 396)",111×121,1.66,1,0.000
+Label_clean.png,Checklist_listed_img_14,失敗,N/A,N/A,N/A,N/A,0,N/A
+Label_clean.png,Checklist_listed_img_15,成功,0.975,"(308, 97)",222×108,0.52,1,0.000

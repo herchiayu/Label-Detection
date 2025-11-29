@@ -1,0 +1,579 @@
+{
+  "metadata": {
+    "processing_time": "2025-11-28 17:47:29",
+    "confidence_threshold": 0.3,
+    "total_images": 1,
+    "ocr_engine": "Tesseract"
+  },
+  "images": [
+    {
+      "filename": "Label_clean.png",
+      "texts": [
+        {
+          "text": "30.0W",
+          "confidence": 0.91,
+          "bbox": {
+            "x": 331,
+            "y": 131,
+            "width": 168,
+            "height": 46
+          },
+          "words": [
+            {
+              "text": "30.0W",
+              "bbox": {
+                "x": 331,
+                "y": 131,
+                "width": 168,
+                "height": 46
+              },
+              "confidence": 0.91
+            }
+          ]
+        },
+        {
+          "text": "NYY. WY i:",
+          "confidence": 0.68,
+          "bbox": {
+            "x": 94,
+            "y": 463,
+            "width": 644,
+            "height": 37
+          },
+          "words": [
+            {
+              "text": "NYY.",
+              "bbox": {
+                "x": 94,
+                "y": 470,
+                "width": 113,
+                "height": 29
+              },
+              "confidence": 0.56
+            },
+            {
+              "text": "WY",
+              "bbox": {
+                "x": 250,
+                "y": 469,
+                "width": 64,
+                "height": 31
+              },
+              "confidence": 0.63
+            },
+            {
+              "text": "i:",
+              "bbox": {
+                "x": 722,
+                "y": 463,
+                "width": 16,
+                "height": 27
+              },
+              "confidence": 0.85
+            }
+          ]
+        },
+        {
+          "text": "MODEL (MODELO) NO. LA24BN",
+          "confidence": 0.913,
+          "bbox": {
+            "x": 171,
+            "y": 534,
+            "width": 490,
+            "height": 32
+          },
+          "words": [
+            {
+              "text": "MODEL",
+              "bbox": {
+                "x": 171,
+                "y": 534,
+                "width": 115,
+                "height": 26
+              },
+              "confidence": 0.93
+            },
+            {
+              "text": "(MODELO)",
+              "bbox": {
+                "x": 297,
+                "y": 534,
+                "width": 162,
+                "height": 32
+              },
+              "confidence": 0.92
+            },
+            {
+              "text": "NO.",
+              "bbox": {
+                "x": 473,
+                "y": 534,
+                "width": 54,
+                "height": 26
+              },
+              "confidence": 0.9
+            },
+            {
+              "text": "LA24BN",
+              "bbox": {
+                "x": 542,
+                "y": 535,
+                "width": 119,
+                "height": 24
+              },
+              "confidence": 0.9
+            }
+          ]
+        },
+        {
+          "text": "INPUT (ENTRADA): 100-240V~1.0A 50/60Hz",
+          "confidence": 0.915,
+          "bbox": {
+            "x": 78,
+            "y": 574,
+            "width": 678,
+            "height": 31
+          },
+          "words": [
+            {
+              "text": "INPUT",
+              "bbox": {
+                "x": 78,
+                "y": 574,
+                "width": 96,
+                "height": 25
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "(ENTRADA):",
+              "bbox": {
+                "x": 186,
+                "y": 574,
+                "width": 186,
+                "height": 31
+              },
+              "confidence": 0.93
+            },
+            {
+              "text": "100-240V~1.0A",
+              "bbox": {
+                "x": 386,
+                "y": 574,
+                "width": 229,
+                "height": 25
+              },
+              "confidence": 0.89
+            },
+            {
+              "text": "50/60Hz",
+              "bbox": {
+                "x": 634,
+                "y": 574,
+                "width": 122,
+                "height": 25
+              },
+              "confidence": 0.89
+            }
+          ]
+        },
+        {
+          "text": "AC ADAPTER AMAZON.COM SERVICES LLC",
+          "confidence": 0.912,
+          "bbox": {
+            "x": 55,
+            "y": 613,
+            "width": 721,
+            "height": 25
+          },
+          "words": [
+            {
+              "text": "AC",
+              "bbox": {
+                "x": 55,
+                "y": 613,
+                "width": 44,
+                "height": 25
+              },
+              "confidence": 0.85
+            },
+            {
+              "text": "ADAPTER",
+              "bbox": {
+                "x": 108,
+                "y": 613,
+                "width": 155,
+                "height": 24
+              },
+              "confidence": 0.85
+            },
+            {
+              "text": "AMAZON.COM",
+              "bbox": {
+                "x": 301,
+                "y": 613,
+                "width": 227,
+                "height": 25
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "SERVICES",
+              "bbox": {
+                "x": 541,
+                "y": 613,
+                "width": 164,
+                "height": 25
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "LLC",
+              "bbox": {
+                "x": 719,
+                "y": 613,
+                "width": 57,
+                "height": 25
+              },
+              "confidence": 0.96
+            }
+          ]
+        },
+        {
+          "text": "CAUTION-ELECTRICALLY OPERATED PRODUCT",
+          "confidence": 0.94,
+          "bbox": {
+            "x": 19,
+            "y": 652,
+            "width": 795,
+            "height": 25
+          },
+          "words": [
+            {
+              "text": "CAUTION-ELECTRICALLY",
+              "bbox": {
+                "x": 19,
+                "y": 652,
+                "width": 403,
+                "height": 25
+              },
+              "confidence": 0.9
+            },
+            {
+              "text": "OPERATED",
+              "bbox": {
+                "x": 442,
+                "y": 652,
+                "width": 178,
+                "height": 25
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "PRODUCT",
+              "bbox": {
+                "x": 652,
+                "y": 652,
+                "width": 162,
+                "height": 25
+              },
+              "confidence": 0.96
+            }
+          ]
+        },
+        {
+          "text": "ATTENTION-PRODUIT A COMMANDE ELECTRIQUE",
+          "confidence": 0.913,
+          "bbox": {
+            "x": 13,
+            "y": 685,
+            "width": 805,
+            "height": 32
+          },
+          "words": [
+            {
+              "text": "ATTENTION-PRODUIT",
+              "bbox": {
+                "x": 13,
+                "y": 691,
+                "width": 346,
+                "height": 25
+              },
+              "confidence": 0.91
+            },
+            {
+              "text": "A",
+              "bbox": {
+                "x": 369,
+                "y": 685,
+                "width": 21,
+                "height": 31
+              },
+              "confidence": 0.92
+            },
+            {
+              "text": "COMMANDE",
+              "bbox": {
+                "x": 401,
+                "y": 691,
+                "width": 195,
+                "height": 25
+              },
+              "confidence": 0.91
+            },
+            {
+              "text": "ELECTRIQUE",
+              "bbox": {
+                "x": 610,
+                "y": 685,
+                "width": 208,
+                "height": 32
+              },
+              "confidence": 0.91
+            }
+          ]
+        },
+        {
+          "text": "OUTPUT (SALIDA): 18.0V ==1.67A 30.0W",
+          "confidence": 0.574,
+          "bbox": {
+            "x": 39,
+            "y": 730,
+            "width": 637,
+            "height": 31
+          },
+          "words": [
+            {
+              "text": "OUTPUT",
+              "bbox": {
+                "x": 39,
+                "y": 730,
+                "width": 136,
+                "height": 25
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "(SALIDA):",
+              "bbox": {
+                "x": 186,
+                "y": 730,
+                "width": 146,
+                "height": 31
+              },
+              "confidence": 0.93
+            },
+            {
+              "text": "18.0V",
+              "bbox": {
+                "x": 346,
+                "y": 731,
+                "width": 124,
+                "height": 24
+              },
+              "confidence": 0.32
+            },
+            {
+              "text": "==1.67A",
+              "bbox": {
+                "x": 480,
+                "y": 731,
+                "width": 83,
+                "height": 24
+              },
+              "confidence": 0.32
+            },
+            {
+              "text": "30.0W",
+              "bbox": {
+                "x": 581,
+                "y": 731,
+                "width": 95,
+                "height": 24
+              },
+              "confidence": 0.34
+            }
+          ]
+        },
+        {
+          "text": "CAN ICES(B)/NMB(B) EFICIENCIA ENERGETICA",
+          "confidence": 0.917,
+          "bbox": {
+            "x": 42,
+            "y": 763,
+            "width": 748,
+            "height": 38
+          },
+          "words": [
+            {
+              "text": "CAN",
+              "bbox": {
+                "x": 42,
+                "y": 769,
+                "width": 67,
+                "height": 26
+              },
+              "confidence": 0.93
+            },
+            {
+              "text": "ICES(B)/NMB(B)",
+              "bbox": {
+                "x": 124,
+                "y": 769,
+                "width": 244,
+                "height": 32
+              },
+              "confidence": 0.92
+            },
+            {
+              "text": "EFICIENCIA",
+              "bbox": {
+                "x": 382,
+                "y": 769,
+                "width": 184,
+                "height": 26
+              },
+              "confidence": 0.91
+            },
+            {
+              "text": "ENERGETICA",
+              "bbox": {
+                "x": 577,
+                "y": 763,
+                "width": 213,
+                "height": 32
+              },
+              "confidence": 0.91
+            }
+          ]
+        },
+        {
+          "text": "CUMPLE CON LA NOM-029-ENER-2017 ®",
+          "confidence": 0.85,
+          "bbox": {
+            "x": 94,
+            "y": 793,
+            "width": 646,
+            "height": 52
+          },
+          "words": [
+            {
+              "text": "CUMPLE",
+              "bbox": {
+                "x": 94,
+                "y": 808,
+                "width": 136,
+                "height": 26
+              },
+              "confidence": 0.92
+            },
+            {
+              "text": "CON",
+              "bbox": {
+                "x": 242,
+                "y": 808,
+                "width": 70,
+                "height": 26
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "LA",
+              "bbox": {
+                "x": 326,
+                "y": 809,
+                "width": 38,
+                "height": 24
+              },
+              "confidence": 0.91
+            },
+            {
+              "text": "NOM-029-ENER-2017",
+              "bbox": {
+                "x": 375,
+                "y": 808,
+                "width": 362,
+                "height": 26
+              },
+              "confidence": 0.9
+            },
+            {
+              "text": "®",
+              "bbox": {
+                "x": 718,
+                "y": 793,
+                "width": 22,
+                "height": 52
+              },
+              "confidence": 0.56
+            }
+          ]
+        },
+        {
+          "text": "ASSEMBLED IN VIETNAM",
+          "confidence": 0.96,
+          "bbox": {
+            "x": 215,
+            "y": 848,
+            "width": 400,
+            "height": 25
+          },
+          "words": [
+            {
+              "text": "ASSEMBLED",
+              "bbox": {
+                "x": 215,
+                "y": 848,
+                "width": 201,
+                "height": 25
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "IN",
+              "bbox": {
+                "x": 430,
+                "y": 848,
+                "width": 28,
+                "height": 24
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "VIETNAM",
+              "bbox": {
+                "x": 471,
+                "y": 848,
+                "width": 144,
+                "height": 24
+              },
+              "confidence": 0.96
+            }
+          ]
+        },
+        {
+          "text": "VPPCCCUUYWWD####",
+          "confidence": 0.88,
+          "bbox": {
+            "x": 232,
+            "y": 887,
+            "width": 369,
+            "height": 25
+          },
+          "words": [
+            {
+              "text": "VPPCCCUUYWWD####",
+              "bbox": {
+                "x": 232,
+                "y": 887,
+                "width": 369,
+                "height": 25
+              },
+              "confidence": 0.88
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
